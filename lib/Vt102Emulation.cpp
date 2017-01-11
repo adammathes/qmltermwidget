@@ -942,9 +942,9 @@ void Vt102Emulation::sendKeyEvent( QKeyEvent* event )
         {
             textToSend.prepend("\033");
         }
-		Qt::KeyboardModifier realControlModifier = Qt::ControlModifier;
+        Qt::KeyboardModifier realControlModifier = Qt::ControlModifier;
 #else
-		Qt::KeyboardModifier realControlModifier = Qt::MetaModifier;
+        Qt::KeyboardModifier realControlModifier = Qt::MetaModifier;
 #endif
 
 
@@ -959,10 +959,10 @@ void Vt102Emulation::sendKeyEvent( QKeyEvent* event )
         {
             textToSend += entry.text(true,modifiers);
         }
-		else if((modifiers & realControlModifier) && event->key() >= 0x40 && event->key() < 0x5f) {
+        else if((modifiers & realControlModifier) && event->key() >= 0x40 && event->key() < 0x5f) {
             textToSend += (event->key() & 0x1f);
         }
-		else if(event->key() == Qt::Key_Tab) {
+        else if(event->key() == Qt::Key_Tab) {
             textToSend += 0x09;
         }
         else if (event->key() == Qt::Key_PageUp) {
